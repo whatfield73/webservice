@@ -1,7 +1,7 @@
 enyo.kind({
 
 name: "WebService",
-kind: enyo.Control,
+kind: enyo.Component,
 published: {
 url: "",
 method: "GET",
