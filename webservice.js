@@ -1,6 +1,7 @@
 enyo.kind({
 
-name: "WebService",
+
+name: "Classic.WebService",
 kind: enyo.Component,
 published: {
 url: "",
