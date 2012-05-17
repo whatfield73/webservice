@@ -5,7 +5,7 @@ To change WebService object for Enyo 1.0 or Mojo:  change the 'components' to 'p
 
 Example code:
 
-{name: "WebService1", kind: "WebService",
+{name: "WebService1", kind: "Classic.WebService",
   	onSuccess: "gottext",
 		onFailure: "gettextfail",
 		published: {
