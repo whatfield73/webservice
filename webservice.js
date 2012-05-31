@@ -24,10 +24,10 @@ this.service = new enyo.Ajax({url: this.url, handleAs: this.handleAs, method: th
 	},
 processResponse: function(inSender, inResponse){
 if (inSender.xhr.status >= 400 || inSender.xhr.status == 0) {
-this.doFailure(inResponse);
+this.doFailure({response: inResponse});
 }
 else {
-this.doSuccess(inResponse);
+this.doSuccess({response: inResponse});
 }
 },
 create: function() {
