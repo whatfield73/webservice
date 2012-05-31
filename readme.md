@@ -18,10 +18,12 @@ Example code:
 
 gottext: function(inSender, inResponse) {
 // process Response
+inResponse = inResponse.response;  // because Enyo 2.0 requires events passed as objects not values
 }
 
 gettextfail: function(inSender, inResponse){
 //process Failure
+inResponse = inResponse.response;  //because Enyo 2.0 requires events passed as objects not values
 }
 this.$.WebService1.setUrl("www.google.com");
 this.$.WebService1.call();
