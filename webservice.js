@@ -25,11 +25,12 @@ this.service = new enyo.Ajax({cacheBust: this.cacheBust, url: this.url, handleAs
 			;
 	},
 processResponse: function(inSender, inResponse){
-if (inSender.xhr.status >= 400 || inSender.xhr.status == 0) {
-this.doFailure({response: inResponse});
+if (inSender.xhr.status >= 400) {
+this.doFailure({response: inResponse, status: inSender.xhr.status});
 }
 else {
-this.doSuccess({response: inResponse});
+	// you may get a status 0 positive response or it could mean that you don't have a connection: code appropriately
+this.doSuccess({response: inResponse, status: inSender.xhr.status});
 }
 },
 create: function() {
