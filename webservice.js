@@ -21,17 +21,18 @@ onFailure: ""
 call: function(parameters) {
 this.service = new enyo.Ajax({cacheBust: this.cacheBust, url: this.url, handleAs: this.handleAs, method: this.method, headers: this.headers, contentType: this.contentType, username: this.username, password: this.password, postBody: this.postBody})
 			.response(this, "processResponse")
+			.error(this, "processFail")
 			.go(parameters)
 			;
 	},
-processResponse: function(inSender, inResponse){
-if (inSender.xhr.status >= 400) {
+processFail: function(inSender, inResponse) {
 this.doFailure({response: inResponse, status: inSender.xhr.status});
-}
-else {
+},
+processResponse: function(inSender, inResponse){
+
 	// you may get a status 0 positive response or it could mean that you don't have a connection: code appropriately
 this.doSuccess({response: inResponse, status: inSender.xhr.status});
-}
+
 },
 create: function() {
 this.inherited(arguments);
